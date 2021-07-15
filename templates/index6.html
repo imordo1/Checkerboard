@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style.css') }}">
+    <title>Checkberboard w/Practice</title>
+</head>
+<body>
+
+
+<!-- REFACTORED with allowing variables - Using the list approach: -->
+<h1>This is the REFACTORED list with allowing x and y inputs for width and height, and for loop approach</h1>
+<p>I choose my width to be {{ x }} and my height to be {{ y }}</p>
+
+{% for i in range(y): %}
+        <ul class="row">
+            {% for j in range(x): %}
+                <li class= "color{{(i+j)%2+1}}" ></li>
+            {% endfor %}
+    </ul>
+{% endfor %}
+
+
+<!-- Using lists and for loops approach: -->
+<h1>This is the list and for loop approach</h1>
+
+{% for num in range(y): %}
+        <ul class="row">
+            {% for num in range(x): %}
+                <li class= "color1" style = "background-color: {{color1}};"></li>
+                <li class= "color2" style = "background-color: {{color2}};"></li>
+            {% endfor %}
+    </ul>
+    <ul class="row">
+        {% for num in range(x): %}
+            <li class= "color2" style = "background-color: {{color2}};"></li>
+            <li class= "color1" style = "background-color: {{color1}};"></li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<br>
+<!-- REFACTORED Using the list approach: -->
+<h1>This is the REFACTORED list and for loop approach</h1>
+
+{% for i in range(8): %}
+        <ul class="row">
+            {% for j in range(8): %}
+                <li class= "color{{(i+j)%2+1}}"></li>
+            {% endfor %}
+    </ul>
+{% endfor %}
+
+
+
+</body>
+</html>

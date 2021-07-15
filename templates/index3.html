@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/my_style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/my_script.js') }}"></script>
+    <img src="{{ url_for('static', filename='img/my_img.png') }}"> */
+</head>
+
+<body>
+
+    <p>This is the "/4" loading page, with a  hard-coded display of an  8x4 grid...I used a for loop at the top to run 2 times and display a set of 8 divs, displaying 2 alternating color divs each iteration.<br>Since I have a nested for loop  to essentially runs 4 times each if the iterated number is even, and 4 times if it is odd. <br>If even, it will display a row starting with one color and alternating down the row. <br>If Odd it will display the  row with the alternate color that even started.<br>We designate why as the width</p>
+
+{% for num in range (2): %}    
+    <div class="row">
+            {% for num in range (8): %}
+                {% if num%2==0: %}
+                    <div class="box"></div>
+                {% else: %}  
+                    <div class="box2"></div>
+                {% endif %}
+            {% endfor %}
+    </div>
+    <div class="row">
+        {% for num in range (8): %}
+            {% if num%2==0: %}
+                <div class="box2"></div>
+            {% else: %}  
+                <div class="box"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endfor %}
+
+</body>
+</html>
